@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TechPop</string>
+    <string name="tab_one">Ars Technica</string>
+    <string name="tab_two">Engadget</string>
+    <string name="tab_three">Recode</string>
+    <string name="tab_four">Techcrunch</string>
+    <string name="tab_five">Tech Radar</string>
+    <string name="tab_six">The Next Web</string>
+    <string name="tab_seven">Tech Radar</string>
+    <string name="newsimage">The Verge</string>
+    <string name="title">title</string>
+    <string name="by_michael_may">by_michael_may</string>
+    <string name="zxczxc">zxczxc</string>
+</resources>
