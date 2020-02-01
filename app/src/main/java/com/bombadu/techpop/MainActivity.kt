@@ -5,20 +5,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.viewpager.widget.ViewPager
+import com.bombadu.techpop.model.NewsData
 import com.bombadu.techpop.tabs.*
 import com.ogaclejapan.smarttablayout.SmartTabLayout
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
+import okhttp3.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         requestedOrientation= ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        //val newsApiKey = BuildConfig.NEWS_API_KEY
-        //val url = "https://newsapi.org/v1/articles?source=engadget&apiKey=$newsApiKey"
+
 
         val adapter = FragmentPagerItemAdapter(
             supportFragmentManager, FragmentPagerItems.with(this)
@@ -35,4 +40,5 @@ class MainActivity : AppCompatActivity() {
         val viewPagerTab = findViewById<View>(R.id.viewpagertab) as SmartTabLayout
         viewPagerTab.setViewPager(viewPager)
     }
+
 }
