@@ -3,7 +3,10 @@ package com.bombadu.techpop
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
 import com.bombadu.techpop.model.NewsData
 import com.bombadu.techpop.tabs.*
@@ -16,7 +19,6 @@ import org.json.JSONObject
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,24 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = adapter
         val viewPagerTab = findViewById<View>(R.id.viewpagertab) as SmartTabLayout
         viewPagerTab.setViewPager(viewPager)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.about) {
+            val aboutDialog = AlertDialog.Builder(this)
+            aboutDialog.setTitle("TechPop: v0.5")
+            aboutDialog.setMessage(
+                "Build Date: 2-2-20\nby Michael May\nBombadu Apps")
+            aboutDialog.setIcon(R.mipmap.ic_launcher)
+            aboutDialog.show()
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

@@ -42,6 +42,7 @@ class Tab3 :Fragment() {
 
     private fun getSourceData(source: String){
         val client = OkHttpClient()
+        listData.clear()
         val url = "https://newsapi.org/v1/articles?source=$source&apiKey=$newsApiKey"
         val request = Request.Builder().url(url).build()
 

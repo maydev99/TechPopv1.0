@@ -37,6 +37,7 @@ class Tab7 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         source = "the-verge"
+        listData.clear()
         getSourceData(source)
     }
 

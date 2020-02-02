@@ -37,6 +37,7 @@ class Tab4 :Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         source = "techcrunch"
+        listData.clear()
         getSourceData(source)
     }
 

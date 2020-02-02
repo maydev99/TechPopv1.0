@@ -37,6 +37,7 @@ class Tab5 :Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         source = "techradar"
+        listData.clear()
         getSourceData(source)
     }
 

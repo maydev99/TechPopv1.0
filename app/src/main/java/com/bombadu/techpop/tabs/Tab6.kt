@@ -37,6 +37,7 @@ class Tab6 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         source = "the-next-web"
+        listData.clear()
         getSourceData(source)
     }
 
