@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/about"
-        android:title="About TechPop"
+        android:title="@string/about"
         android:orderInCategory="99"
         app:showAsAction="never">
 

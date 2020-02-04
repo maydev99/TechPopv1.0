@@ -1,11 +1,17 @@
 package com.bombadu.techpop
 
+import android.app.Dialog
+import android.content.Intent
 import android.content.pm.ActivityInfo
+import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.Window
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager.widget.ViewPager
 import com.bombadu.techpop.model.NewsData
@@ -50,12 +56,19 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.about) {
-            val aboutDialog = AlertDialog.Builder(this)
-            aboutDialog.setTitle("TechPop: v0.5")
-            aboutDialog.setMessage(
-                "Build Date: 2-2-20\nby Michael May\nBombadu Apps")
-            aboutDialog.setIcon(R.mipmap.ic_launcher)
-            aboutDialog.show()
+            val dialog = Dialog(this)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCancelable(true)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
+            dialog.setContentView(R.layout.about_custom_dialog_layout)
+            dialog.show()
+
+            val newsApi = dialog.findViewById<TextView>(R.id.about_newsApi_text_view)
+            newsApi.setOnClickListener {
+                val openURL = Intent(android.content.Intent.ACTION_VIEW)
+                openURL.data = Uri.parse("https://newsapi.org/")
+                startActivity(openURL)
+            }
 
         }
         return super.onOptionsItemSelected(item)
