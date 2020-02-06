@@ -9,13 +9,12 @@
     <string name="tab_seven">Tech Radar</string>
     <string name="newsimage">The Verge</string>
     <string name="title">title</string>
-    <string name="by_michael_may">by_michael_may</string>
     <string name="zxczxc">zxczxc</string>
     <string name="about">About</string>
-    <string name="techpop_v_0_5">TechPop v.0.5</string>
+    <string name="techpop_v_0_5">TechPop v.0.7</string>
     <string name="powered_by_newsapi_org">Powered by NewsApi.org</string>
     <string name="by_michael_may1">by Michael May</string>
     <string name="bombadu_apps">Bombadu Apps</string>
-    <string name="build_date_2_3_2020">Build Date: 2.3.2020</string>
+    <string name="build_date_2_3_2020">Build Date: 2.5.2020</string>
 
 </resources>

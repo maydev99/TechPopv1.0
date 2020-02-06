@@ -29,7 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp">
+                android:layout_marginRight="16dp"
+                android:background="@android:color/white"
+                >
 
                 <ImageView
                     android:id="@+id/news_card_image_view"
@@ -61,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:text="@string/by_michael_may"
+                android:text="@string/by_michael_may1"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
