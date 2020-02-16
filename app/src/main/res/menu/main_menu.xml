@@ -10,13 +10,4 @@
 
     </item>
 
-
-    <item
-        android:id="@+id/data_update"
-        android:title="Data Update"
-        android:orderInCategory="50"
-        app:showAsAction="never">
-
-    </item>
-
 </menu>

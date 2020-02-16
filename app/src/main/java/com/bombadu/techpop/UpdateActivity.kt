@@ -9,6 +9,7 @@ import okhttp3.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
+import java.util.concurrent.TimeUnit
 
 class UpdateActivity : AppCompatActivity() {
 
@@ -23,6 +24,8 @@ class UpdateActivity : AppCompatActivity() {
     private var fbDataRef: DatabaseReference? = null
     private var isUpdated = false
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
@@ -30,19 +33,18 @@ class UpdateActivity : AppCompatActivity() {
         dataUpdateRef = rootRef.child("data_update")
         fbDataRef = rootRef.child("fb_data")
 
-        fbDataRef?.removeValue()
 
         //Needed to handle delete latency
-        val handler = Handler()
-        handler.postDelayed({
-            fetchTheData()
-        }, 3000)
-
+        fbDataRef?.removeValue()?.addOnCompleteListener {
+            val handler = Handler()
+            handler.postDelayed({
+                fetchTheData()
+            }, 5000)
+        }
     }
 
     //This function gets the data from NewsApi.org and push it to Firebase
     private fun fetchTheData() {
-
 
         val mySources = listOf(
             "ars-technica",
@@ -101,8 +103,6 @@ class UpdateActivity : AppCompatActivity() {
                             taskMap["web_url"] = theWebUrl
                             taskMap["author"] = theAuthor
                             fbDataRef?.child(element)?.push()?.updateChildren(taskMap)!!.addOnCompleteListener {
-                                isUpdated = true
-                                closeUpdate()
 
                             }
 
@@ -112,18 +112,31 @@ class UpdateActivity : AppCompatActivity() {
                         e.printStackTrace()
                     }
 
+                    if (response.isSuccessful) {
+                        runOnUiThread {
+                            isUpdated = true
+                            closeUpdate()
+
+                        }
+                    }
 
                 }
-
-
             })
+
         }
 
     }
 
     private fun closeUpdate() {
         if (isUpdated) {
+            rootRef.child("data_update").setValue(timeStamp())
             finish()
+
         }
     }
+
+    private fun timeStamp(): String {
+        return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()).toString()
+    }
+
 }

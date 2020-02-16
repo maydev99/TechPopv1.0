@@ -11,11 +11,12 @@
     <string name="title">title</string>
     <string name="zxczxc">zxczxc</string>
     <string name="about">About</string>
-    <string name="techpop_v_0_5">TechPop v.0.7</string>
+    <string name="techpop_v_0_5">TechPop v.0.8</string>
     <string name="powered_by_newsapi_org">Powered by NewsApi.org</string>
     <string name="by_michael_may1">by Michael May</string>
     <string name="bombadu_apps">Bombadu Apps</string>
-    <string name="build_date_2_3_2020">Build Date: 2.5.2020</string>
+    <string name="build_date_2_3_2020">Build Date: 2.16.2020</string>
     <string name="updating_news">Updating News...</string>
+    <string name="t">t</string>
 
 </resources>

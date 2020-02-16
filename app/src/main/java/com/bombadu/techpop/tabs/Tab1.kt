@@ -11,6 +11,7 @@ import com.bombadu.techpop.NewsAdapter
 import com.bombadu.techpop.R
 import com.bombadu.techpop.model.NewsData
 import com.google.firebase.database.*
+import java.lang.Exception
 
 class Tab1 : Fragment() {
 
@@ -57,11 +58,18 @@ class Tab1 : Fragment() {
                     listData.add(NewsData(title, description, imageUrl, webUrl, author))
                 }
 
-                recView = view!!.findViewById(R.id.recyclerView_1)
-                recView.layoutManager =
-                    LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-                newsAdapter = NewsAdapter(listData)
-                recView.adapter = newsAdapter
+                //Needed to handle delete latency
+                try{
+                    recView = view!!.findViewById(R.id.recyclerView_1)
+                    recView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    newsAdapter = NewsAdapter(listData)
+                    recView.adapter = newsAdapter
+                } catch (e: Exception){
+                    e.printStackTrace()
+                }
+
+
+
             }
 
 

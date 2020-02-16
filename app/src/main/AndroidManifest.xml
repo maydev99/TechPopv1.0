@@ -13,13 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".UpdateActivity"></activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".UpdateActivity" />
+        <activity android:name=".PreCheckActivity" />
 
         <meta-data
             android:name="com.newsapi.ApiKey"
             android:value="{$NEWS_API_KEY}" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".Auth">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
