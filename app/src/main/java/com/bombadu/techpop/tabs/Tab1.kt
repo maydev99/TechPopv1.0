@@ -11,7 +11,6 @@ import com.bombadu.techpop.NewsAdapter
 import com.bombadu.techpop.R
 import com.bombadu.techpop.model.NewsData
 import com.google.firebase.database.*
-import java.lang.Exception
 
 class Tab1 : Fragment() {
 
@@ -28,16 +27,24 @@ class Tab1 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.tab_1, container, false)
     }
 
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+
         fBDataRef = rootRef.child("fb_data")
         articlesRef = fBDataRef!!.child("ars-technica") //News Source
         getSourceData()
 
 
     }
+
 
     private fun getSourceData() {
 
@@ -77,6 +84,8 @@ class Tab1 : Fragment() {
 
         articlesRef?.addValueEventListener(newsListener)
     }
+
+
 
 
 }

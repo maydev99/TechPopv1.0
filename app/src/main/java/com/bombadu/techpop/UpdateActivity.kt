@@ -1,5 +1,7 @@
 package com.bombadu.techpop
 
+import android.annotation.SuppressLint
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
@@ -26,9 +28,11 @@ class UpdateActivity : AppCompatActivity() {
 
 
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
         dataUpdateRef = rootRef.child("data_update")
         fbDataRef = rootRef.child("fb_data")
@@ -39,7 +43,7 @@ class UpdateActivity : AppCompatActivity() {
             val handler = Handler()
             handler.postDelayed({
                 fetchTheData()
-            }, 5000)
+            }, 3000)
         }
     }
 

@@ -1,21 +1,12 @@
 package com.bombadu.techpop
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_pre_check.*
 import java.util.concurrent.TimeUnit
 
 class PreCheckActivity : AppCompatActivity() {
@@ -26,11 +17,9 @@ class PreCheckActivity : AppCompatActivity() {
     private var updateCycleRef: DatabaseReference? = null
     private var lastUpdate: String? = null //for update dialog testing
     private var updateCycleStr: String? = null //for update dialog testing
-
-
-
     private var isUpdating = false
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pre_check)
@@ -38,7 +27,6 @@ class PreCheckActivity : AppCompatActivity() {
         updateCycleRef = rootRef.child("update_cycle")
         auth = FirebaseAuth.getInstance()
         dataUpdateRef = rootRef.child("data_update")
-
 
         checkUpdateCycle()
 
@@ -86,9 +74,6 @@ class PreCheckActivity : AppCompatActivity() {
         }
 
         dataUpdateRef?.addValueEventListener(updateListener)
-
-
-
     }
 
     private fun controlFlow(){
@@ -108,13 +93,6 @@ class PreCheckActivity : AppCompatActivity() {
     private fun timeStamp(): String {
         return TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis()).toString()
     }
-
-
-
-
-
-
-
 }
 
 

@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -13,6 +14,7 @@ import android.view.Window
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import com.bombadu.techpop.model.NewsData
 import com.bombadu.techpop.tabs.*
 import com.ogaclejapan.smarttablayout.SmartTabLayout
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
@@ -43,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         val viewPagerTab = findViewById<View>(R.id.viewpagertab) as SmartTabLayout
         viewPagerTab.setViewPager(viewPager)
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)

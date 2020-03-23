@@ -15,8 +15,8 @@ android {
         applicationId "com.bombadu.techpop"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 2
-        versionName "0.8.0"
+        versionCode 3
+        versionName "0.8.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "NEWS_API_KEY", apikeyProperties['NEWS_API_KEY'])
     }
