@@ -11,7 +11,6 @@ import com.bombadu.techpop.NewsAdapter
 import com.bombadu.techpop.R
 import com.bombadu.techpop.model.NewsData
 import com.google.firebase.database.*
-import java.lang.Exception
 
 class Tab7 : Fragment() {
 
@@ -21,6 +20,7 @@ class Tab7 : Fragment() {
     private var fBDataRef: DatabaseReference? = null
     private lateinit var recView: RecyclerView
     private lateinit var newsAdapter: NewsAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,12 +55,13 @@ class Tab7 : Fragment() {
                     listData.add(NewsData(title, description, imageUrl, webUrl, author))
                 }
 
-                try{
+                try {
                     recView = view!!.findViewById(R.id.recyclerView_7)
-                    recView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    recView.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                     newsAdapter = NewsAdapter(listData)
                     recView.adapter = newsAdapter
-                } catch (e: Exception){
+                } catch (e: Exception) {
                     e.printStackTrace()
                 }
             }

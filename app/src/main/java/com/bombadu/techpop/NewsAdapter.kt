@@ -11,8 +11,8 @@ import com.bombadu.techpop.model.NewsData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.news_card.view.*
 
-class NewsAdapter(private val listData: List<NewsData>) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
-
+class NewsAdapter(private val listData: List<NewsData>) :
+    RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -43,14 +43,19 @@ class NewsAdapter(private val listData: List<NewsData>) : RecyclerView.Adapter<N
             itemView.byLine_text_view.text = newsData.author
             val imageUrl = newsData.imageUrl
             val cardImageView: ImageView = itemView.news_card_image_view
-            Picasso.get().load(imageUrl).into(cardImageView)
+            if (imageUrl == "") {
+                Picasso.get().load(R.drawable.noimage).resize(1280,960).centerCrop().into(cardImageView)
+            } else {
+                Picasso.get().load(imageUrl).into(cardImageView)
+            }
+
             webUrl = newsData.webUrl
 
 
         }
 
         init {
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse(webUrl)
                 itemView.context.startActivity(intent)
@@ -59,10 +64,7 @@ class NewsAdapter(private val listData: List<NewsData>) : RecyclerView.Adapter<N
         }
 
 
-
     }
-
-
 
 
 }

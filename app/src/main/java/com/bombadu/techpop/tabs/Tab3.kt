@@ -49,7 +49,7 @@ class Tab3 : Fragment() {
                     val key = item.key.toString()
                     val author = dataSnapshot.child(key).child("author").value.toString()
                     val description = dataSnapshot.child(key).child("description").value.toString()
-                    val imageUrl = dataSnapshot.child(key).child("image_url").value.toString()
+                    var imageUrl = dataSnapshot.child(key).child("image_url").value.toString()
                     val title = dataSnapshot.child(key).child("title").value.toString()
                     val webUrl = dataSnapshot.child(key).child("web_url").value.toString()
                     listData.add(NewsData(title, description, imageUrl, webUrl, author))
